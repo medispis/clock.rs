@@ -30,7 +30,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     })
 }
 fn get_time() -> String {
-    let utc: DateTime<Utc> = Utc::now();
+    let utc: DateTime<Local> = Local::now();
     utc.format("%H:%M:%S").to_string()
 }
 
@@ -39,7 +39,6 @@ use std::collections::HashMap;
 fn get_block_text(text: &str) -> String {
     let mut font: HashMap<char, Vec<&str>> = HashMap::new();
 
-    // Numbers 0-9
     font.insert('0', vec!["██████", "██  ██", "██  ██", "██  ██", "██████"]);
     font.insert('1', vec!["  ██  ", "  ██  ", "  ██  ", "  ██  ", "  ██  "]);
     font.insert('2', vec!["██████", "    ██", "██████", "██    ", "██████"]);
@@ -51,7 +50,6 @@ fn get_block_text(text: &str) -> String {
     font.insert('8', vec!["██████", "██  ██", "██████", "██  ██", "██████"]);
     font.insert('9', vec!["██████", "██  ██", "██████", "    ██", "██████"]);
 
-    // Colon ':'
     font.insert(':', vec!["      ", "  ██  ", "      ", "  ██  ", "      "]);
 
     let mut result = String::new();
