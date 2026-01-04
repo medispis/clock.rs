@@ -12,8 +12,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             let clock = get_time();
             let block_time = get_block_text(&clock);
 
-            let paragraph =
-                Paragraph::new(block_time).block(Block::default().borders(Borders::NONE));
+            let paragraph = Paragraph::new(block_time)
+                .centered()
+                .block(Block::default().borders(Borders::NONE));
 
             terminal.draw(|frame| frame.render_widget(paragraph, frame.area()))?;
 
