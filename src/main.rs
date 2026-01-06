@@ -10,6 +10,8 @@ use std::time::Duration;
 struct Args {
     #[arg(short, default_value = "clock")]
     mode: String,
+    #[arg(short)]
+    second: bool,
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -38,7 +40,11 @@ fn get_time() -> String {
     let args = Args::parse();
     let utc: DateTime<Local> = Local::now();
     if args.mode == "clock" {
-        utc.format("%H:%M:%S").to_string()
+        if args.second == true {
+            utc.format("%H:%M:%S").to_string()
+        } else {
+            utc.format("%H:%M").to_string()
+        }
     } else if args.mode == "date" {
         utc.format("%Y-%m-%d").to_string()
     } else {

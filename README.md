@@ -22,5 +22,10 @@ To display the date instead of the time:
 ```bash
 clock.rs -m date
 ```
+To display seconds:
+```bash
+clock.rs -s
+```
+
 
 [MIT](https://choosealicense.com/licenses/mit/)
