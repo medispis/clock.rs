@@ -1,8 +1,15 @@
 # clock.rs
 
-clock.rs is a tui clock coded in rust with use of ratatui.
+clock.rs is a minimal terminal TUI clock written in Rust using ratatui
+
 
 ![App Screenshot](./assets/screenshot.png)
+
+## Features
+- Terminal UI clock using ratatui
+- Clock and date modes
+- Optional seconds display
+- Keyboard controls (`q` / `c` to quit)
 
 ## Installation
 
