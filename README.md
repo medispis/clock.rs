@@ -13,10 +13,14 @@ paru -S clock.rs-git
 ```
 
 ## Usage
-to open it just type clock.rs
-you can use flag date for it to show date instead of time
 
+Simply run the executable:
+```bash
+clock.rs
 
+To display the date instead of the time:
+```bash
+clock.rs date
 
 
 [MIT](https://choosealicense.com/licenses/mit/)
