@@ -8,7 +8,7 @@ use std::time::Duration;
 
 #[derive(Parser)]
 struct Args {
-    #[arg(default_value = "clock")]
+    #[arg(short, default_value = "clock")]
     mode: String,
 }
 

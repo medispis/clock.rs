@@ -20,7 +20,7 @@ clock.rs
 ```
 To display the date instead of the time:
 ```bash
-clock.rs date
+clock.rs -m date
 ```
 
 [MIT](https://choosealicense.com/licenses/mit/)
