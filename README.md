@@ -2,7 +2,7 @@
 
 clock.rs is a tui clock coded in rust with use of ratatui.
 
-[App Screenshot](./assets/screenshot.png)
+![App Screenshot](./assets/screenshot.png)
 
 ## Installation
 
