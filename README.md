@@ -6,7 +6,7 @@ clock.rs is a tui clock coded in rust with use of ratatui.
 
 ## Installation
 
-you can build it from source or use aur helper by installing clock.rs-git package.
+You can build it from source or use aur helper by installing clock.rs-git package.
 
 ```bash
 paru -S clock.rs-git
