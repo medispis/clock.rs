@@ -1,9 +1,16 @@
 extern crate chrono;
 use crate::event::Event;
 use chrono::prelude::*;
+use clap::Parser;
 use crossterm::event::{self, KeyCode};
 use ratatui::widgets::{Block, Borders, Paragraph};
 use std::time::Duration;
+
+#[derive(Parser)]
+struct Args {
+    #[arg(default_value = "clock")]
+    mode: String,
+}
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     ratatui::run(|terminal| {
@@ -28,8 +35,15 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     })
 }
 fn get_time() -> String {
+    let args = Args::parse();
     let utc: DateTime<Local> = Local::now();
-    utc.format("%H:%M:%S").to_string()
+    if args.mode == "clock" {
+        utc.format("%H:%M:%S").to_string()
+    } else if args.mode == "date" {
+        utc.format("%Y-%m-%d").to_string()
+    } else {
+        utc.format("%H:%M:%S").to_string()
+    }
 }
 
 use std::collections::HashMap;
@@ -49,6 +63,8 @@ fn get_block_text(text: &str) -> String {
     font.insert('9', vec!["██████", "██  ██", "██████", "    ██", "██████"]);
 
     font.insert(':', vec!["      ", "  ██  ", "      ", "  ██  ", "      "]);
+    font.insert('-', vec!["      ", "      ", "██████", "      ", "      "]);
+    font.insert(' ', vec!["      ", "      ", "      ", "      ", "      "]);
 
     let mut result = String::new();
 
