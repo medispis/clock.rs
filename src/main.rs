@@ -39,16 +39,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 fn get_time() -> String {
     let args = Args::parse();
     let utc: DateTime<Local> = Local::now();
-    if args.mode == "clock" {
-        if args.second == true {
-            utc.format("%H:%M:%S").to_string()
-        } else {
-            utc.format("%H:%M").to_string()
-        }
-    } else if args.mode == "date" {
-        utc.format("%Y-%m-%d").to_string()
-    } else {
-        utc.format("%H:%M:%S").to_string()
+    match (args.mode.as_str(), args.second) {
+        ("clock", true)  => utc.format("%H:%M:%S").to_string(),
+        ("clock", false) => utc.format("%H:%M").to_string(),
+        ("date", _)      => utc.format("%Y-%m-%d").to_string(),
+        _                => utc.format("%H:%M:%S").to_string(),
     }
 }
 
